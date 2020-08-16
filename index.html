@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale = 1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- <link rel="stylesheet" href="./style.css" /> -->
+    <title>Canvas</title>
+    <style>
+      h1 {text-align: center;}
+    </style>
+  </head>
+  <body style="background-color: #80ffd4">
+    <canvas id="canvas" style="border:1px solid #000000;"></canvas>
+    <div id="display" style="font-size: 1.5em">
+      <h1>Draw a digit Above</h1>
+    </div>
+    <div class="" style="text-align:center;">
+        <button type="button" id="btnSubmit" style="width: 25%;height: 10%; font-size: 1.5em">Submit</button>
+    <!-- <button type="button" id="btnClear" style="width: 20%;height: 10%; font-size: 1.5em">Submit</button> -->
+        <button type="submit" id="clear" onClick="window.location.reload();" style="width: 25%;height: 10%; font-size: 1.5em">Clear</button>
+    <!-- <script src="canvas.js" charset="utf-8"></script> -->
+
+    </div>
+    <img src="" id = "imgConverted" style="display:none;float: left; border: 2px solid #00f; margin-left: 10px;">
+    <script>
+
+      var output = {
+        '0':"Zero",
+        '1':"One",
+        '2':"Two",
+        '3':"Three",
+        '4':"Four",
+        '5':"Five",
+        '6':"Six",
+        '7':"Seven",
+        '8':"Eight",
+        '9':"Nine",
+      };
+
+      window.addEventListener("load", () => {
+      const canvas = document.querySelector("#canvas");
+      const ctx = canvas.getContext("2d");
+      // var pw = canvas.parentNode.clientWidth;
+      // var ph = canvas.parentNode.clientHeight;
+
+      // Resizing
+      canvas.height = 600; //window.innerHeight;
+      canvas.width = 1300;//window.innerWidth; //1000;
+      // canvas.style.top = (ph-canvas.height)/2 + "px";
+      // canvas.style.left = (pw-canvas.width)/2 + "px";
+
+      canvas.style.background = "white";
+      //variables
+      let painting = false;
+
+      function startPosition(e){
+        painting = true;
+        draw(e) // to enable user to draw points
+      }
+      function finishPosition(){
+        painting = false;
+        ctx.beginPath();
+      }
+
+      function draw(e){
+        if(!painting) return;
+        ctx.lineWidth = 20;
+        ctx.lineCap = "round";
+        ctx.strokeStyle = "red";
+
+        ctx.lineTo(e.clientX, e.clientY);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(e.clientX, e.clientY);
+      }
+      //Eventlisteners
+      canvas.addEventListener("mousedown", startPosition);
+      canvas.addEventListener("mouseup", finishPosition);
+      canvas.addEventListener("mousemove", draw);
+    });
+
+      const btnSubmit = document.querySelector("#btnSubmit");
+      const imgConverted = document.querySelector("#imgConverted");
+      const myCanvas = document.querySelector("#canvas");
+
+
+      btnSubmit.addEventListener("click", function (){
+
+        const imgData = myCanvas.toDataURL("image/png");
+        $.post("/process", {'image': imgData}, function(data){
+				      console.log(data,output[data]);
+              document.getElementById("display").innerHTML = "<h1>Number drawn: "+output[data]+"</h1>";
+				});
+
+
+
+
+
+        // if(window.navigator.msSaveBlob){
+        //   window.navigator.msSaveBlob(myCanvas.msToBlob(), "canvas-image.png")
+        // }
+        // else{
+        //   const a = document.createElement("a");
+        //
+        //   document.body.appendChild(a);
+        //   a.href = myCanvas.toDataURL();
+        //   a.download = "canvas-image.png";
+        //   a.click();
+        //   document.body.removeChild(a);
+
+        // }
+      });
+
+    </script>
+  </body>
+</html>
