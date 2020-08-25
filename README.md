@@ -10,5 +10,5 @@ We will need to generate and download RSA private key(.pem). Along with the abov
 
 Few results of the AWS deployed Digit Recognizer Application:
 
-![GitHub Logo](Images/3.png)
+![GitHub Logo](Images/3.PNG)
 Format: ![Alt Text](url)
