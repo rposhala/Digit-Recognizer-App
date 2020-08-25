@@ -9,3 +9,6 @@ CNN model was tuned by testing it on the worst possible handwritten digits we co
 We will need to generate and download RSA private key(.pem). Along with the above project, you will have to get the private key to try it on your own.
 
 Few results of the AWS deployed Digit Recognizer Application:
+
+![GitHub Logo](Images/3.png)
+Format: ![Alt Text](url)
