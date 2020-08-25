@@ -12,3 +12,24 @@ Few results of the AWS deployed Digit Recognizer Application:
 
 ![GitHub Logo](Images/3.PNG)
 Format: ![Alt Text](url)
+
+![GitHub Logo](Images/4.PNG)
+Format: ![Alt Text](url)
+
+![GitHub Logo](Images/2.PNG)
+Format: ![Alt Text](url)
+
+![GitHub Logo](Images/dotted_5.PNG)
+Format: ![Alt Text](url)
+
+![GitHub Logo](Images/5.PNG)
+Format: ![Alt Text](url)
+
+![GitHub Logo](Images/7.PNG)
+Format: ![Alt Text](url)
+
+![GitHub Logo](Images/8.PNG)
+Format: ![Alt Text](url)
+
+![GitHub Logo](Images/9.PNG)
+Format: ![Alt Text](url)
