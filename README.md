@@ -8,7 +8,7 @@ CNN model was tuned by testing it on the worst possible handwritten digits we co
 
 **How to build and deploy the project:** You will need to generate and download RSA private key(.pem). Along with the above project, you will have to get the private key to try it on your own.
 
-As said, above model was tuned to recognize the digits in worst handwritting and should be able to recognize and display the number with which it is matching the most. Above attached fianal_report.pdf has detailed explanation.
+As said above, model was tuned to recognize the digits in worst handwritting and should be able to recognize and display the number with which it is matching the most. Above attached fianal_report.pdf has detailed explanation.
 
 Few results of the AWS deployed Digit Recognizer Application:
 
